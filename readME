@@ -1,0 +1,15 @@
+adding the foreign key between accounts and transections using old fashioned way
+
+-- Alter the transactions table to add foreign key constraint for sender_account_number
+ALTER TABLE transections
+ADD CONSTRAINT fk_sender_account
+FOREIGN KEY (sender_account_number) REFERENCES accounts(account_number)
+--ON DELETE CASCADE; -- This means that if an account is deleted, the corresponding transactions will also be deleted
+
+-- Alter the transactions table to add foreign key constraint for receiver_account_number
+ALTER TABLE transections
+ADD CONSTRAINT fk_receiver_account
+FOREIGN KEY (receiver_account_number) REFERENCES accounts(account_number)
+--ON DELETE CASCADE; -- This means that if an account is deleted, the corresponding transactions will also be deleted
+
+seeder file for initial data
