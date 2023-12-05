@@ -24,7 +24,7 @@ async function transection(req, res) {
       if (!sender || !receiver) {
         throw new Error("Sender or receiver not found!");
       }
-      if (sender.amount<0 || receiver.amount<0){
+      if (sender.amount<0){
         throw new Error("not sufficient balance!")
       }
 

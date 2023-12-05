@@ -13,3 +13,15 @@ FOREIGN KEY (receiver_account_number) REFERENCES accounts(account_number)
 --ON DELETE CASCADE; -- This means that if an account is deleted, the corresponding transactions will also be deleted
 
 seeder file for initial data
+
+
+end point 
+localhost:3000/api/transfer
+
+post request -> localhost:3000/api/transfer -> body -> raw -> JSON FORMAT ->
+sample data
+{
+    "senderAccountNumber" : 1002,
+    "receiverAccountNumber": 1001,
+    "amount": 5000
+}
