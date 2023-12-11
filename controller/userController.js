@@ -58,7 +58,7 @@ async function transection(req, res) {
       res.status(200).json({ success: true, message: "Transfer made" });
     });
   } catch (error) {
-    console.log("Error in transfer(catch):", error.message);
+    console.log("something wrong happened", error.message);
   }
 }
 
