@@ -9,6 +9,9 @@ async function transection(req, res) {
     if (!senderAccountNumber || !receiverAccountNumber || !amount) {
       throw new Error('All fields are required');
     }
+    if (!senderAccountNumber || senderAccountNumber.amount < 50){
+      res.send("not meet minimum balance")
+    }
 
     await sequelize.transaction(async (t) => {
       const sender = await accountModel.findOne({
@@ -24,8 +27,11 @@ async function transection(req, res) {
       if (!sender || !receiver) {
         throw new Error("Sender or receiver not found!");
       }
-      if (sender.amount<0){
-        console.log("not enough funds to transfer")
+      // minimum criteria
+      if (amount <= 50){
+        res.send("meet the minimum criteria")
+        throw new Error("Not enough funds to transfer. Minimum transfer amount is 50.");
+
       }
 
       // Create a transaction record
