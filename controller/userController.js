@@ -25,10 +25,11 @@ async function transection(req, res) {
       });
 
       if (!sender || !receiver) {
-        throw new Error("Sender or receiver not found!");
+        res.send("sender or receiver account number not entered!")
+        // throw new Error("Sender or receiver not found!");
       }
       // minimum criteria
-      if (amount <= 50){
+      if (amount <= 99){
         res.send("meet the minimum criteria")
         throw new Error("Not enough funds to transfer. Minimum transfer amount is 50.");
 
@@ -56,6 +57,9 @@ async function transection(req, res) {
 
       console.log("Transfer made!");
       res.status(200).json({ success: true, message: "Transfer made" });
+      // balance updation after the transection is commit()
+      console.log("Sender balance:" ,sender.amount)
+      console.log("receiver balance:", receiver.amount)
     });
   } catch (error) {
     console.log("something wrong happened", error.message);
