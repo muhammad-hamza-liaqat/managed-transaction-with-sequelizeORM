@@ -25,7 +25,7 @@ async function transection(req, res) {
         throw new Error("Sender or receiver not found!");
       }
       if (sender.amount<0){
-        throw new Error("not sufficient balance!")
+        console.log("not enough funds to transfer")
       }
 
       // Create a transaction record
@@ -34,7 +34,6 @@ async function transection(req, res) {
           sender_account_number: sender.account_number,
           receiver_account_number: receiver.account_number,
           amount,
-        //   transection_id: "009",
         }
       );
 
@@ -46,15 +45,14 @@ async function transection(req, res) {
       await sender.save({ transaction: t });
       await receiver.save({ transaction: t });
 
-      // Commit the transaction--->managed transections
+      // Commit the transaction--->un managed transections
     //   await t.commit();
 
       console.log("Transfer made!");
       res.status(200).json({ success: true, message: "Transfer made" });
     });
   } catch (error) {
-    console.log("Error in transfer:", error.message);
-    // res.status(500).json({ success: false, message: "Error during transfer" });
+    console.log("Error in transfer(catch):", error.message);
   }
 }
 
