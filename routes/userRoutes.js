@@ -3,7 +3,7 @@ const transection = require("../controller/userController");
 const app = express();
 const myroutes = express.Router();
 
-myroutes.route('/transfer')
+myroutes.route('/send')
 .get((req,res)=>{
     res.end("hello from routes")
 })

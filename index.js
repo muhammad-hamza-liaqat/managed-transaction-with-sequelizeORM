@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 
 
 // routes 
-app.use("/api",myroutes);
+app.use("/api/cash",myroutes);
 
 
 // server

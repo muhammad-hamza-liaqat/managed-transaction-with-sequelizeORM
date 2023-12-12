@@ -1,13 +1,15 @@
 const { Sequelize, DataTypes } = require('sequelize');
 
+    // connected to the database, classical => SQL with sequelize
     const sequelize = new Sequelize('classical', 'root', '', {
     host: 'localhost',
-    dialect: 'mysql', //which database you're using such as sql postgress
+    dialect: 'mysql', 
     })
 
 sequelize.authenticate().then(() => {
     console.log('connected to mySQL');
     sequelize.sync();
+    console.log("sync with MYSQL")
  }).catch((error) => {
     console.error('database not connected...!');
  });
