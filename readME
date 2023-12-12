@@ -16,7 +16,7 @@ seeder file for initial data
 
 
 end point 
-localhost:3000/api/transfer
+localhost:3000/api/cash/send   => end point
 
 post request -> localhost:3000/api/transfer -> body -> raw -> JSON FORMAT ->
 sample data
