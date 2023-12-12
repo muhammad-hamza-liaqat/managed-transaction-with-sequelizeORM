@@ -10,9 +10,6 @@ async function transection(req, res) {
     if(!senderAccountNumber || !receiverAccountNumber || !amount) {
       console.log("senderAccountNumber||receiverAccountNumber ||amount is missing.");
     }
-    // if(!senderAccountNumber || senderAccountNumber.amount < 99){
-    //   res.send("please meet the minimum criteria of sending amount");
-    // }
     // sender account number
     await sequelize.transaction(async (t) => {
       const sender = await accountModel.findOne({
